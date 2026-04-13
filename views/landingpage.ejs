@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>PMcore - Otimize seus processos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Estilos específicos da Landing Page para manter organizado */
+        .hero {
+            background-color: var(--pm-dark);
+            color: var(--pm-white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        
+        .pricing-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .plan-card {
+            background: var(--pm-white);
+            border-radius: 8px;
+            padding: 2rem;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+        
+        .plan-card:hover { border-color: var(--pm-blue); }
+        .plan-card h3 { color: var(--pm-navy); font-size: 1.5rem; }
+        .plan-price { font-size: 2rem; font-weight: bold; margin: 1rem 0; color: var(--pm-dark); }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--pm-blue);
+            color: var(--pm-white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .btn-primary:hover { background-color: var(--pm-blue-hover); }
+        
+        .nav-login {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--pm-white);
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--pm-white);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <a href="/login" class="nav-login">Já tenho conta (Login)</a>
+        <h1>Bem-vindo ao PMcore</h1>
+        <p>A plataforma definitiva de CRM e gestão para o seu negócio.</p>
+    </header>
+
+    <main>
+        <section class="pricing-section">
+            <div class="plan-card">
+                <h3>Básico</h3>
+                <p>Ideal para autônomos</p>
+                <div class="plan-price">R$ 49/mês</div>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ 1 Usuário</li>
+                    <li>✓ CRM Básico</li>
+                    <li>✓ Suporte por Email</li>
+                </ul>
+                <a href="/checkout/basico" class="btn-primary">Assinar Básico</a>
+            </div>
+
+            <div class="plan-card" style="border-color: var(--pm-blue); transform: scale(1.05);">
+                <h3>Pro</h3>
+                <p>Para pequenas equipes</p>
+                <div class="plan-price">R$ 99/mês</div>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ Até 5 Usuários</li>
+                    <li>✓ CRM Completo</li>
+                    <li>✓ Dashboard Avançado</li>
+                </ul>
+                <a href="/checkout/pro" class="btn-primary">Assinar Pro</a>
+            </div>
+
+            <div class="plan-card">
+                <h3>Enterprise</h3>
+                <p>Empresas consolidadas</p>
+                <div class="plan-price">R$ 299/mês</div>
+                <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+                    <li>✓ Usuários Ilimitados</li>
+                    <li>✓ API Customizada</li>
+                    <li>✓ Suporte 24/7</li>
+                </ul>
+                <a href="/checkout/enterprise" class="btn-primary">Assinar Enterprise</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

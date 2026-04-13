@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Assinatura - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main class="checkout-container">
+        <section class="checkout-form-side">
+            <div class="checkout-header">
+                <h2>Crie sua conta</h2>
+                <p>Complete os dados para acessar o seu CRM agora mesmo.</p>
+            </div>
+
+            <form action="/usuarios/registrar" method="POST">
+                <input type="hidden" name="plano" value="Pro">
+
+                <div class="form-group">
+                    <label for="nome">Nome do Administrador</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Crie uma Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <button type="submit" class="btn-primary" style="margin-top: 20px;">
+                    Confirmar e Acessar Dashboard
+                </button>
+
+                <div class="secure-notice">
+                    <span>🔒</span>
+                    <p>Ambiente seguro e criptografado.</p>
+                </div>
+            </form>
+        </section>
+
+        <aside class="checkout-summary-side">
+            <span class="plan-badge">Plano Selecionado</span>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">PMcore Business</h3>
+            <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 25px;">
+                Tudo o que você precisa para gerenciar seus clientes de ponta a ponta.
+            </p>
+
+            <ul style="list-style: none; padding: 0; color: #cbd5e1; font-size: 0.9rem;">
+                <li style="margin-bottom: 10px;">✅ Kanban de Vendas Ilimitado</li>
+                <li style="margin-bottom: 10px;">✅ Gestão de Clientes</li>
+                <li style="margin-bottom: 10px;">✅ Suporte Prioritário</li>
+            </ul>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span>R$ 0,00*</span>
+            </div>
+            <p style="font-size: 0.7rem; color: #94a3b8; margin-top: 5px;">*Valor promocional de lançamento.</p>
+        </aside>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

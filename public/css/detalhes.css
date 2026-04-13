@@ -1,0 +1,66 @@
+/* =========================================
+   ESTILOS EXCLUSIVOS - PERFIL DO CLIENTE
+   ========================================= */
+
+.profile-card {
+    background: var(--pm-white);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info-group {
+    margin-bottom: 1.5rem;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid var(--pm-blue);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 1.15rem;
+    color: var(--pm-text);
+    font-weight: 500;
+}
+
+.action-buttons {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-outline {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #e2e8f0;
+    color: var(--pm-text);
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #e2e8f0;
+}

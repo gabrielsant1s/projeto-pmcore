@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .container-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .table-card {
+            background: var(--pm-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--pm-dark);
+            color: var(--pm-white);
+            padding: 15px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--pm-text);
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .badge-plano {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background: #e2e8f0;
+            color: var(--pm-navy);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main>
+        <div class="container-header">
+            <div>
+                <h1>Gestão de Clientes</h1>
+                <p>Visualize e gerencie todos os parceiros do PMcore.</p>
+            </div>
+            <a href="/clientes/novo" class="btn-primary" style="width: auto;">+ Novo Cliente</a>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (clientes.length > 0) { %>
+                        <% clientes.forEach(cliente => { %>
+                            <tr>
+                                <td style="font-weight: 500;"><%= cliente.nome %></td>
+                                <td><%= cliente.email %></td>
+                                <td><%= cliente.telefone || 'Não informado' %></td>
+                                <td>
+                                    <a href="/clientes/<%= cliente._id %>" style="color: var(--pm-blue); text-decoration: none; font-weight: bold;">Ver Detalhes</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 40px; color: #94a3b8;">
+                                Nenhum cliente cadastrado no momento.
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrar - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main class="login-page">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Bem-vindo de volta</h2>
+                <p>Acesse sua conta para gerenciar seus negócios.</p>
+            </div>
+
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+                    Entrar no Sistema
+                </button>
+            </form>
+
+            <div class="login-footer">
+                Ainda não tem conta? <a href="/views/checkout.ejsr">Começar agora</a>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

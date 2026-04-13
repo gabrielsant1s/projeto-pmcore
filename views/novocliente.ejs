@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Cliente - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--pm-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--pm-navy);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--pm-text);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--pm-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .btn-cancel {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--pm-text);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn-cancel:hover {
+            background-color: #cbd5e1;
+        }
+
+        .btn-primary {
+            flex: 2;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main>
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Cadastrar Novo Cliente</h2>
+                <p style="color: #64748b; margin-top: 5px;">Preencha os dados abaixo para adicionar um novo contato ao CRM.</p>
+            </div>
+
+            <form action="/clientes" method="POST">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo / Empresa *</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: Acme Corporation">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail Profissional *</label>
+                    <input type="email" id="email" name="email" required placeholder="contato@acme.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="btn-group">
+                    <a href="/clientes" class="btn-cancel">Cancelar</a>
+                    <button type="submit" class="btn-primary">Salvar Cliente</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

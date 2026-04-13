@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Cliente - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/detalhes.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main>
+        <div class="profile-card">
+            <div class="profile-header">
+                <div>
+                    <h2 style="color: var(--pm-navy); font-size: 2rem; margin-bottom: 5px;"><%= cliente.nome %></h2>
+                    <p style="color: #64748b;">
+                        Cliente adicionado em: <%= cliente.criadoEm.toLocaleDateString('pt-BR') %>
+                    </p>
+                </div>
+                <a href="/clientes" class="btn-outline">← Voltar para a lista</a>
+            </div>
+
+            <div class="info-group">
+                <div class="info-label">E-mail Profissional</div>
+                <div class="info-value"><%= cliente.email %></div>
+            </div>
+
+            <div class="info-group">
+                <div class="info-label">Telefone / WhatsApp</div>
+                <div class="info-value"><%= cliente.telefone || 'Não informado' %></div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="/clientes/<%= cliente._id %>/editar" class="btn-primary" style="width: auto; background-color: var(--pm-blue); text-decoration: none; text-align: center; display: inline-block;">✏️ Editar Dados</a>
+
+                <form action="/clientes/<%= cliente._id %>/excluir" method="POST" style="display: inline;" onsubmit="return confirm('Tem certeza que deseja excluir o cliente <%= cliente.nome %>? Esta ação não pode ser desfeita e todos os dados serão perdidos.');">
+                    <button type="submit" class="btn-primary" style="width: auto; background-color: #ef4444; border: none; cursor: pointer;">🗑️ Excluir Cliente</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

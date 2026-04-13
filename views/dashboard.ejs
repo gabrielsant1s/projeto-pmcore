@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - PMcore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/kanban.css">
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <main>
+        <div class="section-title" style="margin-top: 40px;">
+            <h2>Funil de Vendas</h2>
+            <p>Gerencie o progresso dos seus negócios</p>
+        </div>
+
+        <div class="kanban-container">
+    
+    <div class="kanban-column col-prospeccao">
+        <h2>Prospecção</h2>
+        <% clientes.forEach(cliente => { %>
+            <% if(cliente.status === 'Prospecção') { %>
+                <div class="kanban-card">
+                    <strong><%= cliente.nome %></strong>
+                    <p><%= cliente.email %></p>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+    <div class="kanban-column col-negociacao">
+        <h2>Negociação</h2>
+        <% clientes.forEach(cliente => { %>
+            <% if(cliente.status === 'Negociação') { %>
+                <div class="kanban-card" style="border-left-color: #f59e0b;">
+                    <strong><%= cliente.nome %></strong>
+                    <p><%= cliente.email %></p>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+    <div class="kanban-column col-fechado">
+        <h2>Fechado</h2>
+        <% clientes.forEach(cliente => { %>
+            <% if(cliente.status === 'Fechado') { %>
+                <div class="kanban-card" style="border-left-color: #10b981;">
+                    <strong><%= cliente.nome %></strong>
+                    <p><%= cliente.email %></p>
+                </div>
+            <% } %>
+        <% }) %>
+    </div>
+
+</div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<script>
+    // Selecionamos todas as colunas do Kanban
+    const colunas = document.querySelectorAll('.kanban-column');
+
+    colunas.forEach(coluna => {
+        new Sortable(coluna, {
+            group: 'kanban', // Permite mover entre diferentes colunas
+            animation: 150,  // Velocidade da animação em milissegundos
+            ghostClass: 'sortable-ghost', // Classe aplicada ao lugar onde o card vai cair
+            onEnd: function (evt) {
+                // Aqui é onde a "mágica" acontece
+                const itemEl = evt.item; // O card que foi movido
+                const novaColuna = evt.to; // A coluna onde ele caiu
+                
+                console.log(`O cliente foi movido para: ${novaColuna.querySelector('h2').innerText}`);
+                
+                // Futuramente, faremos um fetch() aqui para salvar o novo status no banco
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
